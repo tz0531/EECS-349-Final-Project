@@ -3,6 +3,7 @@
 #Gave Ace cards none values to signal to the player that it needs to choose a value
 
 from Card import *
+import random
 
 class Deck:
 	suits = ["clubs", "spades", "hearts", "diamonds"]
@@ -20,7 +21,9 @@ class Deck:
 					cval = int(t)
 				nc = Card(cname, cval)
 				self.cards.append(nc)
+		self.cards = random.sample(self.cards, len(self.cards))
 
 if __name__ == "__main__":
 	d = Deck()
-	print(len(d.cards))
+	for c in d.cards:
+		print(c.name)
