@@ -1,6 +1,6 @@
 #Builds deck based on rules found at http://www.bigmcasino.com/learn-more/what-are-the-card-values-in-black-jack/
 
-#Gave Ace cards none values to signal to the player that it needs to choose a value
+#Ace is automatically assigned a value of 11 unless it causes a bust
 
 from Card import *
 import random
@@ -13,10 +13,10 @@ class Deck:
 		for s in self.suits:
 			for t in self.types:
 				cname = t+" of "+s
-				if t == "10" or t == "Jack" or t == "Queen" or t == "King":
+				if t == "Jack" or t == "Queen" or t == "King":
 					cval = 10
 				elif t == "Ace":
-					cval = None
+					cval = 11
 				else:
 					cval = int(t)
 				nc = Card(cname, cval)

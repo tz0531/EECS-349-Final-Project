@@ -21,7 +21,7 @@ class Dealer:
 		self.hand.append(self.deck.Pop(0))
 		self.hole = self.deck.Pop(0)
 
-	def round(players):
+	def playRound(players):
 		for p in players:
 			pmove = p.decide()
 			if pmove == 
