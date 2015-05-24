@@ -5,6 +5,8 @@ from player import *
 from dealer import *
 import csv
 
+global Q_old
+
 def game():
 	p = Player()
 	d = Dealer()
