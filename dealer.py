@@ -20,7 +20,7 @@ class Dealer:
 	def dealerDraw(self):
 		self.hand.append(self.hole)
 		while valHand(self.hand) < 17:
-			self.hand.append(self.deck.cards.Pop(0))
+			self.hand.append(self.deck.cards.pop(0))
 	
 	def deal(self,p):
 		p.hand.append(self.deck.cards.pop(0))
