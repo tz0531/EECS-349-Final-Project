@@ -14,8 +14,8 @@ def valHand(hand):
 		else:
 			val += card.value
 	for card in aces:
-		if val <= 10:
-			val += 11
-		else:
+		if val + 11 > 21:
 			val += 1
+		else:
+			val += 11
 	return val

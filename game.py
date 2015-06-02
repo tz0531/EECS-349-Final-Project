@@ -15,7 +15,7 @@ def game(qdict, trial, wins):
 	d = Dealer()
 	d.deal(p)
 	status = 2
-	epsilon = 0.05
+	epsilon = 0.1
 	#print("starting a game...")
 	#time.sleep(1)
 	while status == 2:
@@ -27,10 +27,10 @@ def game(qdict, trial, wins):
 		Q4 = qlist[3]
 		if p.hasAce(): 
 			pchoice = q.epsilonGreedy(Q3, Q4, epsilon)
-			print("using ace conditions :)")
+			#print("using ace conditions :)")
 		else:
 			pchoice = q.epsilonGreedy(Q1, Q2, epsilon)
-			print("NOT using ace conditions :D")
+			#print("NOT using ace conditions :D")
 		if pchoice == Q1 or pchoice == Q3:
 			#print("Player chose to HIT")
 			#time.sleep(1)
@@ -68,26 +68,27 @@ if __name__ == "__main__":
 	trial = 1
 	wins = 0
 	qdict = {
-		4 : [0.5, 0.5, 0.5, 0.5],
-		5 : [0.5, 0.5, 0.5, 0.5],
-		6 : [0.5, 0.5, 0.5, 0.5],
-		7 : [0.5, 0.5, 0.5, 0.5],
-		8 : [0.5, 0.5, 0.5, 0.5],
-		9 : [0.5, 0.5, 0.5, 0.5],
-		10 : [0.5, 0.5, 0.5, 0.5],
-		11 : [0.5, 0.5, 0.5, 0.5],
-		12 : [0.5, 0.5, 0.5, 0.5],
-		13 : [0.5, 0.5, 0.5, 0.5],
-		14 : [0.5, 0.5, 0.5, 0.5],
-		15 : [0.5, 0.5, 0.5, 0.5],
-		16 : [0.5, 0.5, 0.5, 0.5],
-		17 : [0.5, 0.5, 0.5, 0.5],
-		18 : [0.5, 0.5, 0.5, 0.5],
-		19 : [0.5, 0.5, 0.5, 0.5],
-		20 : [0.5, 0.5, 0.5, 0.5],
-		21 : [0.5, 0.5, 0.5, 0.5]
+		#  HitnA StdnA HitA StdA
+		4 : [0.5, 0.5, 0.9, 0.5],
+		5 : [0.5, 0.5, 0.9, 0.5],
+		6 : [0.5, 0.5, 0.9, 0.5],
+		7 : [0.5, 0.5, 0.9, 0.5],
+		8 : [0.5, 0.5, 0.9, 0.5],
+		9 : [0.5, 0.5, 0.9, 0.5],
+		10 : [0.5, 0.5, 0.9, 0.5],
+		11 : [0.5, 0.5, 0.9, 0.5],
+		12 : [0.5, 0.5, 0.9, 0.5],
+		13 : [0.5, 0.5, 0.9, 0.5],
+		14 : [0.5, 0.5, 0.9, 0.5],
+		15 : [0.5, 0.5, 0.9, 0.5],
+		16 : [0.5, 0.5, 0.9, 0.5],
+		17 : [0.5, 0.5, 0.9, 0.5],
+		18 : [0.1, 0.9, 0.5, 0.5],
+		19 : [0.1, 0.9, 0.5, 0.5],
+		20 : [0.1, 0.9, 0.5, 0.5],
+		21 : [0.1, 0.9, 0.5, 0.5]
 		}
-	while trial < 5000:
+	while trial < 10000:
 		qdict, wins = game(qdict, trial, wins)
 		reslist = []
 		qlist = []
