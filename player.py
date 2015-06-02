@@ -20,3 +20,9 @@ class Player:
 	def decide(self):
 		#player decision code goes here
 		return 0
+
+	def hasAce(self):
+		for card in self.hand:
+			if "Ace" in card.name:
+				return True
+		return False

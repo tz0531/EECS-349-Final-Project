@@ -34,33 +34,33 @@ class Dealer:
 	def playRound(self, p, dec):
 		if dec == "HIT":
 			p.hand.append(self.deck.cards.pop(0))
-			print("player has received "+str(p.hand[-1].value) + ", hand values is now: "+str(valHand(p.hand)))
-			time.sleep(1)
+			#print("player has received "+str(p.hand[-1].value) + ", hand values is now: "+str(valHand(p.hand)))
+			#time.sleep(1)
 			p.seen.append(p.hand[-1])
 			#print(type(valHand(p.hand)))
 			if valHand(p.hand) > 21:
-				print("Player's hand went over 21.  Player LOSES")
+				#print("Player's hand went over 21.  Player LOSES")
 				return -1
 		elif dec == "STAND":
 			self.dealerDraw()
 			if valHand(self.hand) > 21:
-				print("Dealer's hand went over 21.  Player WINS")
-				time.sleep(1)
+				#print("Dealer's hand went over 21.  Player WINS")
+				#time.sleep(1)
 				return 1
 			elif valHand(p.hand) > 21:
-				print("Player's hand went over 21.  Player LOSES")
-				time.sleep(1)
+				#print("Player's hand went over 21.  Player LOSES")
+				#time.sleep(1)
 				return -1
 			if valHand(self.hand) > valHand(p.hand):
-				print("Dealer's hand was greater than the player's hand. Player LOSES")
-				time.sleep(1)
+				#print("Dealer's hand was greater than the player's hand. Player LOSES")
+				#time.sleep(1)
 				return -1
 			elif valHand(self.hand) < valHand(p.hand):
-				print("Player's hand was greater than the dealer's hand.  Player WINS")
-				time.sleep(1)
+				#print("Player's hand was greater than the dealer's hand.  Player WINS")
+				#time.sleep(1)
 				return 1
 			elif valHand(self.hand) == valHand(p.hand):
-				print("Player and dealer tied.  Player TIES")
-				time.sleep(1)
+				#print("Player and dealer tied.  Player TIES")
+				#time.sleep(1)
 				return 0
 		return 2		
