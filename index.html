@@ -13,14 +13,14 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-    <title>Hackjack by tz0531</title>
+    <title>Hackjack: Teaching a Machine Blackjack Strategies Through Q-Learning by tz0531</title>
   </head>
 
   <body>
     <header>
       <div class="inner">
-        <h1>Hackjack</h1>
-        <h2>Teaching a Machine Blackjack Strategies Through Q-Learning</h2>
+        <h1>Hackjack: Teaching a Machine Blackjack Strategies Through Q-Learning</h1>
+        <h2>Final Project for EECS 349 Spring 2015 with Professor Doug Downey, by Joonyong Rhee, Alexander Wenzel, and Taylor Zheng</h2>
         <a href="https://github.com/tz0531/EECS-349-Final-Project" class="button"><small>View project on</small> GitHub</a>
       </div>
     </header>
@@ -34,10 +34,16 @@
 <p>Blackjack is a popular casino game that is played all over the world, and many have come up with strategies to try to beat the dealer, such as card counting. Such exploits have been highlighted in popular culture through the movie 21, which was based off of the book Bringing Down the House, by Ben Mezrich. The game itself is highly based on probability and seems simple, but effective strategies for beating the dealer are not readily apparent without thorough probabilistic analysis. Because of this, many inexperienced players will make moves based on intuition or gut feeling without taking into account the probabilities behind their decisions. As such, the game is a good choice for applying machine learning algorithms to see whether a computer can devise an effective strategy for playing given enough trial games, so that it can beat the dealer a significant percentage of the time.  </p>
 
 <p><img src="http://www.pix123.com/freebetcodes/NewsImages/118186_free-blackjack.jpg" alt="Blackjack Game"><br>
-<strong>Figure 1: Example of a simulated game of blackjack</strong></p>
+<strong>Figure 1: Example of a simulated game of blackjack</strong>  </p>
+
+<p>Our task is to create a machine that can learn to play the card game Blackjack strategically based upon information learned from previous games it has played through using reinforcement learning techniques. In order to do so, it is necessary to build a Blackjack game implementation that gives feedback and rewards to the machine, which learns the rules of Blackjack as well as advanced gameplay strategies in the process. Our task demonstrates the viability of teaching machines to play deeply intuitive, probability-based games such as Blackjack. It also shows how machine learning techniques in general can have real-world impact, since Blackjack is one of the most popular casino games in the world and generates significant revenue for casinos worldwide.</p>
 
 <h2>
 <a id="design" class="anchor" href="#design" aria-hidden="true"><span class="octicon octicon-link"></span></a>Design</h2>
+
+<p>Before we could implement any machine learning techniques to train a computer to play blackjack, we needed to create an interface that would allow us to simulate a game of blackjack. This involved writing card, deck, player, and dealer classes in Python, allowing a computerized dealer to deal cards to a simulated player that would be taught the game of blackjack through reinforcement learning techniques. We chose to implement a simplified version of the game, with one dealer and one player, no bets or monetary sums, and no splitting. This allowed us to focus purely on the playing strategy involved in the game, since splitting is essentially like creating another player, while the monetary sums involved are important only in a competitive context.  </p>
+
+<p>In regards to the details of gameplay, the deck of 52 cards is shuffled before each round, and Aces are valued as 11's automatically, unless it would cause the total value of the hand to go over 21, in which case Aces are revalued as 1's as necessary.  </p>
 
 <p>Detail the algorithm and how the game runs, Q-values and epsilon-greedy policy</p>
 
