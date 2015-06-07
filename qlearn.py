@@ -18,10 +18,12 @@ class Qlearn:
 				return Q2
 
 	def evaluate(self, p, Q1, Q2, Q3, Q4, choice, status, trial, wins):
-		alpha = 1/(trial**0.1)
+		##alpha = 1/(trial**0.1)
 		#alpha = 1/(trial*0.15)
-		#alpha = 0.1
-		gamma = 0.99
+		alpha = 0.1
+		##gamma = 0.99
+		###alpha = 1/(trial**0.15)
+		gamma = 0.9
 		#gamma = 0.05
 		maxa = 1
 		if status == 1:
@@ -51,6 +53,9 @@ class Qlearn:
 			return -1
 		else:
 			rwd = valHand(p.hand) + random.randint(1, 11)
+			if flippedAce(p.hand):
+				rwd = rwd*-1
+				return rwd
 			if rwd >= 22:
 				#return -1
 				return 0
@@ -62,7 +67,10 @@ class Qlearn:
 			return -1
 		else:
 			#return 0
-			return 1/(22-valHand(p.hand))
+			rwd = 1/(22-valHand(p.hand))
+			if flippedAce(p.hand):
+				return rwd + 0.5
+			return rwd
 
 	#def reward(self, p, status):
 	#	if valHand(p.hand) > 21 or status == -1 or status == 0:

@@ -53,7 +53,7 @@ if __name__ == "__main__":
 		20 : [0.5, 0.5, 0.5, 0.5],
 		21 : [0.5, 0.5, 0.5, 0.5]
 		}
-	while trial < 10000:
+	while trial < 2000:
 		qdict, wins = game(qdict, trial, wins)
 		reslist = []
 		qlist = []

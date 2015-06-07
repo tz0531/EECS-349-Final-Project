@@ -30,6 +30,11 @@ finalqs = data[-1][0]
 for line in finalqs.split():
 	print(line)
 
+print("===Final Win Percentages===")
+print("Q-learning: 	" + str(percs[-1]))
+print("Dealer Strategy: " + str(dealerpercs[-1]))
+print("Random Strategy: " + str(randompercs[-1]))
+
 fig = plt.figure(figsize=(6, 3.5))
 plt.xlabel("Trial Number")
 plt.ylabel("Win Percentage")
