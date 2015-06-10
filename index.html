@@ -49,7 +49,7 @@
 
 <p>After researching reinforcement learning techniques, we settled on using Q-learning to teach our simulated player how to play blackjack, because it learns the state-action value function and the exploration policy at the same time, while also being an off-policy method. To select which action to choose at each decision point, we chose to use an epsilon-greedy policy that selected the action with the highest Q-value, except for epsilon percentage of the time, when it selected an action randomly. Because we used Q-learning, our data set consisted of a table of Q-values stored in a CSV (Comma Separated Value) formatted file, which would be continuously updated after each hand according to the formula:   </p>
 
-<p><strong>Q(s, a) ← (1-alpha)*Q(s, a) + alpha(r +gamma(maxa’Q(s’,a’)))</strong>  </p>
+<p><strong>Q(s, a) ← (1-alpha)<em>Q(s, a) + alpha(r +gamma</em>maxa’Q(s’,a’))</strong>  </p>
 
 <p>We initially tried implementing a version of Q-learning that had 2 Q-values, one for hitting and one for standing, but found that this caused the player to develop a far too aggressive strategy,making it hit all the time and never standing. We then implemented a version that had 36 Q-values, with a Q-value for hitting and standing at every possible hand state in the game. After this, we added Q-values to differentiate between whether or not the player had an Ace in its hand, meaning every value hand had 4 Q-values, one for (no Ace, stand), one for (no Ace, hit), one for (has Ace, stand), and one for (has Ace, hit). This brought our total number of unique Q-values up to 72, one for every significant state in the game.  </p>
 
